@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace CD03_Pfeiffer.ViewModel
 {
@@ -88,18 +89,6 @@ namespace CD03_Pfeiffer.ViewModel
                 Items.Add(new StockEntryViewModel(item)); // ViewModel data structure is filled
             }
         }
-
-        private StockEntry selectedStockEntry;
-        public StockEntry SelectedStockEntry
-        {
-            get
-            {
-                return selectedStockEntry;
-            }
-            set
-            {
-                selectedStockEntry = value;
-            }
-        }
+        
     }
 }

@@ -24,5 +24,20 @@ namespace CD03_Pfeiffer
         {
             InitializeComponent();
         }
+
+        private void AddButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Enter new stock entry");
+        }
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Delete stock entry");
+        }
+
+        private void EditButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Edit stock entry");
+        }
     }
 }
