@@ -1,4 +1,5 @@
-﻿using CodingDojo4DataLib;
+﻿using CD03_Pfeiffer.Commands;
+using CodingDojo4DataLib;
 using CodingDojo4DataLib.Converter;
 using System;
 using System.Collections.Generic;
@@ -79,10 +80,10 @@ namespace CD03_Pfeiffer.ViewModel
         //    return new StockEntryViewModel();
         //}
 
-        
         // => from provided library: List of stock entries
         private List<StockEntry> stock;
         
+
         public MainViewModel()
         {
             // from provided library: Sample Manager (includes the current stock)
@@ -95,9 +96,55 @@ namespace CD03_Pfeiffer.ViewModel
                 // for each entry a new entry in the ObservableCollection is created
                 Items.Add(new StockEntryViewModel(item)); // ViewModel data structure is filled
             }
-            
+            // Create instance of addBtnClickedCommand
+            // RelayCommand has only the delegate which points to the methods which contains the logic 
+            addBtnClickedCommand = new RelayCommand(new Action(AddButtonClicked), new Func<bool>(CanExecute));
+
         }
 
-        
+        // selected row 
+        private StockEntryViewModel selectedRow;
+
+        public StockEntryViewModel SelectedRow
+        {
+            get
+            {
+                return  selectedRow;
+            }
+            set
+            {
+                selectedRow = value;
+                OnChange("SelectedRow");
+            }
+        }
+
+        private RelayCommand addBtnClickedCommand;
+        // command
+        public RelayCommand AddBtnClickedCommand
+        {
+            get
+            {
+                return addBtnClickedCommand;
+            }
+            set
+            {
+                addBtnClickedCommand = value;
+            }
+        }
+
+        // can the button be clicked?
+        private bool CanExecute()
+        {
+            // return true => We can always click that button
+            return true;
+        }
+        // add logic what should happen if the button is clicked
+        private void AddButtonClicked()
+        {
+            // remove selected row
+            Items.Remove(SelectedRow);
+        }
+
+
     }
 }

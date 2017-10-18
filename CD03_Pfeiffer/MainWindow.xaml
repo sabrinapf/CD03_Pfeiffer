@@ -44,7 +44,7 @@
         </DataGrid>
         <!-- Add Buttons to last row -->
         <Button x:Name="AddButton" Content="Add" HorizontalAlignment="Right" Margin="0,0,20,0" Grid.Row="2" VerticalAlignment="Center" Width="50" Click="AddButton_Click"/>
-        <Button x:Name="DeleteButton" Content="Delete" HorizontalAlignment="Right" Margin="0,0,80,0" Grid.Row="2" VerticalAlignment="Center" Width="50" Click="DeleteButton_Click"/>
-        <Button x:Name="EditButton" Content="Edit" HorizontalAlignment="Right" Margin="0,0,140,0" Grid.Row="2" VerticalAlignment="Center" Width="50" Click="EditButton_Click" Command="{Binding DeleteCommand}"/>       
+        <Button x:Name="DeleteButton" Content="Delete" HorizontalAlignment="Right" Margin="0,0,80,0" Grid.Row="2" VerticalAlignment="Center" Width="50" Click="DeleteButton_Click" Command="{Binding AddBtnClickedCommand}"/>
+        <Button x:Name="EditButton" Content="Edit" HorizontalAlignment="Right" Margin="0,0,140,0" Grid.Row="2" VerticalAlignment="Center" Width="50" Click="EditButton_Click"/>       
     </Grid>
 </Window>

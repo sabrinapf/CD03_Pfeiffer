@@ -32,7 +32,7 @@ namespace CD03_Pfeiffer
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("For deleting an existing stock entry, select desired entry and press the DEL key on your keyboard.");
+            MessageBox.Show("Item deleted.");
         }
 
         private void EditButton_Click(object sender, RoutedEventArgs e)
