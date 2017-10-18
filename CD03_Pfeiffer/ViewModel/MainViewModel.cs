@@ -96,9 +96,9 @@ namespace CD03_Pfeiffer.ViewModel
                 // for each entry a new entry in the ObservableCollection is created
                 Items.Add(new StockEntryViewModel(item)); // ViewModel data structure is filled
             }
-            // Create instance of addBtnClickedCommand
+            // Create instance of deleteBtnClickedCommand
             // RelayCommand has only the delegate which points to the methods which contains the logic 
-            addBtnClickedCommand = new RelayCommand(new Action(AddButtonClicked), new Func<bool>(CanExecute));
+            deleteBtnClickedCommand = new RelayCommand(new Action(DeleteButtonClicked), new Func<bool>(CanExecute));
 
         }
 
@@ -118,17 +118,17 @@ namespace CD03_Pfeiffer.ViewModel
             }
         }
 
-        private RelayCommand addBtnClickedCommand;
+        private RelayCommand deleteBtnClickedCommand;
         // command
-        public RelayCommand AddBtnClickedCommand
+        public RelayCommand DeleteBtnClickedCommand
         {
             get
             {
-                return addBtnClickedCommand;
+                return deleteBtnClickedCommand;
             }
             set
             {
-                addBtnClickedCommand = value;
+                deleteBtnClickedCommand = value;
             }
         }
 
@@ -139,7 +139,7 @@ namespace CD03_Pfeiffer.ViewModel
             return true;
         }
         // add logic what should happen if the button is clicked
-        private void AddButtonClicked()
+        private void DeleteButtonClicked()
         {
             // remove selected row
             Items.Remove(SelectedRow);
