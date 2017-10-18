@@ -72,7 +72,14 @@ namespace CD03_Pfeiffer.ViewModel
                 item.CalculatePurchasePriceFromEuro(selectedCurrency);
             }
         }
-                     
+
+        // method to add a new line (simply add new stockentryviewmodel) => not necessary
+        //private StockEntryViewModel AddLine()
+        //{
+        //    return new StockEntryViewModel();
+        //}
+
+        
         // => from provided library: List of stock entries
         private List<StockEntry> stock;
         
@@ -81,14 +88,16 @@ namespace CD03_Pfeiffer.ViewModel
             // from provided library: Sample Manager (includes the current stock)
             SampleManager manager = new SampleManager();
             stock = manager.CurrentStock.OnStock;
-
+            
             // for each item in the list stock ...
             foreach(var item in stock)
             {
                 // for each entry a new entry in the ObservableCollection is created
                 Items.Add(new StockEntryViewModel(item)); // ViewModel data structure is filled
             }
+            
         }
+
         
     }
 }

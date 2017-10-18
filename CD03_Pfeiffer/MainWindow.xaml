@@ -23,7 +23,7 @@
         <!-- Add DataGrit to Row 1 -->
         <!-- Set AutoGenerateColumns to False -->
         <!-- Add Binding (ItemSource) => Property has to be created in the ViewModel afterwards -->
-        <DataGrid Grid.Row="1" ItemsSource="{Binding Items}" Margin="20,0,20,0" AutoGenerateColumns="False">
+        <DataGrid Grid.Row="1" ItemsSource="{Binding Items}" Margin="20,0,20,0" AutoGenerateColumns="False" SelectedItem = "{Binding SelectedRow}">
             <!-- Define Columns -->
             <DataGrid.Columns>
                 <!-- Define Header -->
@@ -33,11 +33,18 @@
                 <DataGridTextColumn Header="Sales Price" Binding="{Binding SalesPrice}"/>
                 <DataGridTextColumn Header="Purchase Price" Binding="{Binding PurchasePrice}"/>
                 <DataGridTextColumn Header="On Stock" Binding="{Binding ItemOnStock}" />
+                <DataGridTemplateColumn Header="">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Ellipse Height="10" Width="10" HorizontalAlignment="Left" Fill="{Binding BrushConverter}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
         <!-- Add Buttons to last row -->
         <Button x:Name="AddButton" Content="Add" HorizontalAlignment="Right" Margin="0,0,20,0" Grid.Row="2" VerticalAlignment="Center" Width="50" Click="AddButton_Click"/>
         <Button x:Name="DeleteButton" Content="Delete" HorizontalAlignment="Right" Margin="0,0,80,0" Grid.Row="2" VerticalAlignment="Center" Width="50" Click="DeleteButton_Click"/>
-        <Button x:Name="EditButton" Content="Edit" HorizontalAlignment="Right" Margin="0,0,140,0" Grid.Row="2" VerticalAlignment="Center" Width="50" Click="EditButton_Click"/>       
+        <Button x:Name="EditButton" Content="Edit" HorizontalAlignment="Right" Margin="0,0,140,0" Grid.Row="2" VerticalAlignment="Center" Width="50" Click="EditButton_Click" Command="{Binding DeleteCommand}"/>       
     </Grid>
 </Window>

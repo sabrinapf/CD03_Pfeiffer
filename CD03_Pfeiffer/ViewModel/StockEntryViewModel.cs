@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace CD03_Pfeiffer.ViewModel
 {
@@ -91,6 +92,62 @@ namespace CD03_Pfeiffer.ViewModel
                 // call OnChange() method that the selected on stock value has changed
                 OnChange("ItemOnStock");
             }
+        }
+        // brush converter: shows graphically state of on stock(in addition to the numerical values)
+        public Brush BrushConverter
+        {
+            get
+            {
+                // stockValue equals the stock amount of the specific item
+                int stockValue = stockEntry.Amount;
+                // 3 different brush colors (red, orange, green)
+                // initialize new SolidColorBrush with specific color
+                Brush red = new SolidColorBrush(Colors.Red);
+                Brush orange = new SolidColorBrush(Colors.Orange);
+                Brush green = new SolidColorBrush(Colors.Green);
+
+                // if the stockvalue is less than 10
+                if (stockValue < 10)
+                {
+                    // the circle appears red
+                    return red;
+                }
+                // if the stockvalue is within 10 and 20 (10 & 20 included)
+                else if (stockValue >= 10 && stockValue <= 20)
+                {
+                    // the circle appears orange
+                    return orange;
+                }
+                // in any other case (= more than 20)
+                else
+                {
+                    // the circle appears green
+                    return green;
+                }
+            }
+        }
+
+        // Constructor without parameters => empty fields  => for adding new items
+        public StockEntryViewModel()
+        {
+            // create new stock entry
+            stockEntry = new StockEntry();
+            // create new software for stock entry
+            stockEntry.SoftwarePackage = new Software("");
+            // create new group for stock entry
+            stockEntry.SoftwarePackage.Category = new Group();
+            // create new category name for stock entry
+            stockEntry.SoftwarePackage.Category.Name = "";
+            // create new name of stock entry (including prompt to add new item)
+            stockEntry.SoftwarePackage.Name = "add new item here";
+            // set purchase price to 0
+            stockEntry.SoftwarePackage.PurchasePrice = 0;
+            // set sales price to 0;
+            stockEntry.SoftwarePackage.SalesPrice = 0;
+
+            // save initial value of the price in euro
+            salesPriceInEuro = stockEntry.SoftwarePackage.SalesPrice;
+            purchasePriceInEuro = stockEntry.SoftwarePackage.PurchasePrice;
         }
 
         // Constructor, parameter = StockEntry

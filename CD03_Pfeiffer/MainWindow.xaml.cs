@@ -27,17 +27,17 @@ namespace CD03_Pfeiffer
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Enter new stock entry");
+            MessageBox.Show("For adding a new stock entry, double click on the last row.");            
         }
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Delete stock entry");
+            MessageBox.Show("For deleting an existing stock entry, select desired entry and press the DEL key on your keyboard.");
         }
 
         private void EditButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Edit stock entry");
+            MessageBox.Show("For editing an existing stock entry, select desired entry and simply overwrite the content.");
         }
     }
 }
