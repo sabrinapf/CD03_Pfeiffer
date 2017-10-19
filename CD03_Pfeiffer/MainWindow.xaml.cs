@@ -32,7 +32,7 @@ namespace CD03_Pfeiffer
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("For adding a new stock entry, select row and press Delete.");
+            MessageBox.Show("For deleting a new stock entry, select row and press Delete.");
         }
 
         private void EditButton_Click(object sender, RoutedEventArgs e)
